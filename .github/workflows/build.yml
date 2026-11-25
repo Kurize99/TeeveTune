@@ -16,6 +16,7 @@ jobs:
         run: mkdir -p ~/.android && cp debug.keystore ~/.android/debug.keystore
       - run: npm install
       - run: npx cap add android
+      - run: python3 tools/setup_android.py
       - run: npx cap sync android
       - run: cd android && chmod +x gradlew && ./gradlew assembleDebug
       - uses: actions/upload-artifact@v4
